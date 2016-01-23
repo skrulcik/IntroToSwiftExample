@@ -8,18 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
+
+    var itemList = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        itemList.append(Item(name: "Milk", count: 1))
+        itemList.append(Item(name: "Eggs", count: 12))
+        itemList.append(Item(name: "Tub of cookie dough", count: 3))
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
