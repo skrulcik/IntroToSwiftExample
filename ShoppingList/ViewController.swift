@@ -18,5 +18,13 @@ class ViewController: UITableViewController {
         itemList.append(Item(name: "Eggs", count: 12))
         itemList.append(Item(name: "Tub of cookie dough", count: 3))
     }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemList.count
+    }
 }
 
