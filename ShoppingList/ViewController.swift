@@ -18,13 +18,28 @@ class ViewController: UITableViewController {
         itemList.append(Item(name: "Eggs", count: 12))
         itemList.append(Item(name: "Tub of cookie dough", count: 3))
     }
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemList.count
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("ItemCell")
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "ItemCell")
+        }
+
+        if let cell = cell where indexPath.row < itemList.count {
+                let item = itemList[indexPath.row]
+                cell.textLabel?.text = item.name
+                cell.detailTextLabel?.text = "\(item.count)"
+        }
+
+        return cell!
     }
 }
 
